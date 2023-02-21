@@ -1,5 +1,9 @@
+import InputTodo from './InputTodo';
+
 const TodosLogic = () => (
-  <div>TodosLogic content</div>
+  <>
+    <InputTodo />
+  </>
 );
 
 export default TodosLogic;
