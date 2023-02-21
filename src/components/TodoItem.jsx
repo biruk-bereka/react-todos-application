@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
+import { FaTrash } from 'react-icons/fa';
+import { AiFillEdit } from 'react-icons/ai';
 import styles from '../styles/TodoItem.module.css';
 
 const TodoItem = ({
@@ -38,8 +40,8 @@ const TodoItem = ({
       <div className={styles.content}>
         <input type="checkbox" checked={todo.completed} onChange={() => handleChange(todo.id)} />
         <span style={todo.completed ? completedStyle : null}>{todo.title}</span>
-        <button type="button" onClick={handleEditing}>Edit</button>
-        <button type="button" onClick={() => delTodo(todo.id)}>Delete</button>
+        <button type="button" onClick={handleEditing} aria-label="Edit"><AiFillEdit /></button>
+        <button type="button" onClick={() => delTodo(todo.id)} aria-label="Delete"><FaTrash /></button>
       </div>
       <input
         type="text"
