@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from '../styles/TodoItem.module.css';
 
 const TodoItem = ({
   todo, handleChange, delTodo, setUpdate,
 }) => {
+  const editInputRef = useRef(null);
   const [editing, setEditing] = useState(false);
   const completedStyle = {
     fontStyle: 'italic',
@@ -27,6 +28,7 @@ const TodoItem = ({
 
   const handleUpdateDone = (event) => {
     if (event.key === 'Enter') {
+      setUpdate(editInputRef.current.value, todo.id);
       setEditing(false);
     }
   };
@@ -39,7 +41,14 @@ const TodoItem = ({
         <button type="button" onClick={handleEditing}>Edit</button>
         <button type="button" onClick={() => delTodo(todo.id)}>Delete</button>
       </div>
-      <input type="text" value={todo.title} className={styles.textInput} style={editMode} onChange={(e) => setUpdate(e.target.value, todo.id)} onKeyDown={handleUpdateDone} />
+      <input
+        type="text"
+        ref={editInputRef}
+        defaultValue={todo.title}
+        className={styles.textInput}
+        style={editMode}
+        onKeyDown={handleUpdateDone}
+      />
     </li>
   );
 };
