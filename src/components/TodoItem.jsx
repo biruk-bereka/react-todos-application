@@ -11,7 +11,7 @@ const TodoItem = ({ todo, handleChange, delTodo }) => (
 TodoItem.propTypes = {
   todo: PropTypes.shape({
     title: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.string,
     completed: PropTypes.bool,
   }),
   handleChange: PropTypes.func.isRequired,
