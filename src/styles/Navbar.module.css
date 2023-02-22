@@ -1,0 +1,26 @@
+.navbar {
+  text-decoration: none;
+}
+
+.navbar li {
+  padding: 10px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.navbar li:hover {
+  background-color: green;
+}
+
+.navLinks {
+  list-style: none;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 20px;
+}
