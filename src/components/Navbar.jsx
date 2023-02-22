@@ -8,13 +8,12 @@ const links = [
 
 const Navbar = () => (
   <nav className={styles.navbar}>
-    <ul>
+    <ul className={styles.navItems}>
       {links.map((link) => (
         <li key={link.text} className={styles.navLinks}>
           <NavLink to={link.path}>
             {link.text}
             {' '}
-            style=
             {({ isActive }) => ({
               color: isActive ? 'red' : undefined,
             })}

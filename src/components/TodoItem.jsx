@@ -17,7 +17,7 @@ const TodoItem = ({
   };
 
   const handleEditing = () => {
-    setEditing(true);
+    setEditing(!editing);
   };
 
   const viewMode = {};
@@ -37,7 +37,7 @@ const TodoItem = ({
 
   return (
     <li className={styles.item}>
-      <div className={styles.content}>
+      <div className={styles.content} style={viewMode}>
         <input type="checkbox" checked={todo.completed} onChange={() => handleChange(todo.id)} />
         <span style={todo.completed ? completedStyle : null}>{todo.title}</span>
         <button type="button" onClick={handleEditing} aria-label="Edit"><AiFillEdit /></button>
